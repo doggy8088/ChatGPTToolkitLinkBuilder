@@ -108,7 +108,7 @@ function loadDataFromHash() {
     inputElements.forEach(element => {
         if (params.has(element.name)) {
             if (element.type == 'checkbox') {
-                element.value = (params.get(element.name) !== 'false')
+                element.checked = (params.get(element.name) !== 'false')
             } else {
                 element.value = params.get(element.name)
             }
