@@ -68,10 +68,16 @@ function b64DecodeUnicode(str) {
 
 // 取得表單和輸入元素
 const firstForm = document.querySelector('form');
-const inputElements = firstForm.querySelectorAll('input, textarea');
+const inputElements = firstForm.querySelectorAll('input, textarea, select');
 
 // 監聽所有輸入元素的變更
-inputElements.forEach(element => element.addEventListener('input', run));
+inputElements.forEach(element => {
+    if (element.tagName === 'SELECT') {
+        element.addEventListener('change', run);
+    } else {
+        element.addEventListener('input', run);
+    }
+});
 
 // 頁面載入完成時執行
 document.addEventListener('DOMContentLoaded', function() {
@@ -202,11 +208,15 @@ function generateLink(sitesearch = false) {
     if (!!sitesearch) {
         promptTextEncoded = encodeURIComponent(firstForm.prompt.value).replace('%25s', '%s')
     }
-    return `${firstForm.baseurl.value}#autoSubmit=${firstForm.autoSubmit.checked}&pasteImage=${firstForm.pasteImage.checked}&prompt=${promptTextEncoded}`;
+    let url = `${firstForm.baseurl.value}#autoSubmit=${firstForm.autoSubmit.checked}&pasteImage=${firstForm.pasteImage.checked}&prompt=${promptTextEncoded}`;
+    if (firstForm.tool && firstForm.tool.value) {
+        url += `&tool=${encodeURIComponent(firstForm.tool.value)}`;
+    }
+    return url;
 }
 
 // 分享功能
-function share() {
+function sharePrompt() {
     run();
 
     let hash = '#';

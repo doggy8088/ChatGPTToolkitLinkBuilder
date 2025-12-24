@@ -102,6 +102,15 @@
       </div>
 
       <div class="form-group">
+        <label for="tool" class="form-label">選擇工具</label>
+        <p class="info-text" style="margin-bottom: 8px;">選擇要使用的工具類型</p>
+        <select name="tool" id="tool" class="form-select">
+          <option value="">不使用工具</option>
+          <option value="image">image</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label class="form-label checkbox-group">
           <input type="checkbox" name="autoSubmit" id="autoSubmit" class="checkbox-input"/>
           是否要自動送出提示詞
@@ -117,7 +126,7 @@
 
       <div style="margin-top: 32px;">
         <button id="ask" type="button" onclick="openChatGPT()" class="btn">開啟 ChatGPT 提問</button>
-        <button id="share" type="button" onclick="share()" class="btn">分享這組提示</button>
+        <button id="share" type="button" onclick="sharePrompt()" class="btn">分享這組提示</button>
       </div>
     </form>
 
