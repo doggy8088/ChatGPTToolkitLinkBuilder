@@ -1,12 +1,6 @@
 // AI 提供者對應網址
 const aiProviderUrls = {
     'chatgpt': 'https://chatgpt.com/',
-    'chatgpt-4': 'https://chatgpt.com/?model=gpt-4',
-    'chatgpt-4o': 'https://chatgpt.com/?model=gpt-4o',
-    'chatgpt-4o-canvas': 'https://chatgpt.com/?model=gpt-4o-canmore',
-    'chatgpt-4o-mini': 'https://chatgpt.com/?model=gpt-4o-mini',
-    'chatgpt-o1-preview': 'https://chatgpt.com/?model=o1-preview',
-    'chatgpt-o1-mini': 'https://chatgpt.com/?model=o1-mini',
     'claude': 'https://claude.ai/',
     'gemini': 'https://gemini.google.com/app',
     'phind-search': 'https://www.phind.com/search?home=true',
@@ -18,12 +12,6 @@ const aiProviderUrls = {
 // AI 提供者顯示名稱
 const aiProviderNames = {
     'chatgpt': 'ChatGPT',
-    'chatgpt-4': 'ChatGPT 4',
-    'chatgpt-4o': 'ChatGPT 4o',
-    'chatgpt-4o-canvas': 'ChatGPT 4o with canvas',
-    'chatgpt-4o-mini': 'ChatGPT 4o mini',
-    'chatgpt-o1-preview': 'ChatGPT o1-preview',
-    'chatgpt-o1-mini': 'ChatGPT o1 mini',
     'claude': 'Claude',
     'gemini': 'Gemini',
     'phind-search': 'phind - Search',
@@ -206,13 +194,13 @@ function loadDataFromLocalStorage() {
 
     // 初始化 AI 提供者選擇
     if (!firstForm.aiProvider.value) {
-        firstForm.aiProvider.value = 'chatgpt-4o-mini';
+        firstForm.aiProvider.value = 'chatgpt';
     }
     
     // 如果沒有設定 baseurl，使用選中的 AI 提供者的預設 URL
     if (!firstForm.baseurl.value) {
         const selectedProvider = firstForm.aiProvider.value;
-        firstForm.baseurl.value = aiProviderUrls[selectedProvider] || 'https://chatgpt.com/?model=gpt-4o-mini';
+        firstForm.baseurl.value = aiProviderUrls[selectedProvider] || 'https://chatgpt.com/';
     }
 }
 
