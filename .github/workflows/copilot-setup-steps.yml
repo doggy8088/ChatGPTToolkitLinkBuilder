@@ -1,0 +1,38 @@
+name: "Copilot Setup Steps"
+
+# 當檔案變更時自動執行以便驗證
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+
+jobs:
+  # 工作名稱必須是 copilot-setup-steps
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    
+    # 設定最低必要權限
+    permissions:
+      # 如果需要複製儲存庫來安裝相依套件,需要此權限
+      contents: read
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: hms5232/install-CNS11643-fonts-action@v1  # 依照需求設定版本號或是 SHA
+
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      #     cache: 'npm'
+      
+      # - name: Install dependencies
+      #   run: npm ci
+
+
