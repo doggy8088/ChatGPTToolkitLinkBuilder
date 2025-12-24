@@ -99,7 +99,7 @@ function loadDataFromLocalStorage() {
                 element.checked = (localStorage.getItem(element.name) === 'true')
             }
         } else {
-            element.value = localStorage.getItem(element.name)
+            element.value = localStorage.getItem(element.name) || ''
         }
     });
 
@@ -116,7 +116,7 @@ function loadDataFromHash() {
             if (element.type == 'checkbox') {
                 element.checked = (params.get(element.name) !== 'false')
             } else {
-                element.value = params.get(element.name)
+                element.value = params.get(element.name) || ''
             }
         }
     });
