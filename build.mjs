@@ -41,7 +41,7 @@ function minifyCSS(css) {
     .trim();
 }
 
-// 最小化 JavaScript
+// 最小化 JavaScript (保守方式，避免破壞程式邏輯)
 function minifyJS(js) {
   return js
     // 移除單行註解
@@ -52,46 +52,23 @@ function minifyJS(js) {
     .replace(/\n\s*\n/g, '\n')
     // 移除行首空白
     .replace(/^\s+/gm, '')
-    // 移除多餘的空白
-    .replace(/\s+/g, ' ')
-    // 修正一些必要的空白
-    .replace(/\s*([{}();,:])\s*/g, '$1')
-    .replace(/}\s*else\s*{/g, '}else{')
-    .replace(/if\s*\(/g, 'if(')
-    .replace(/for\s*\(/g, 'for(')
-    .replace(/while\s*\(/g, 'while(')
-    .replace(/function\s+/g, 'function ')
-    .replace(/return\s+/g, 'return ')
-    .replace(/var\s+/g, 'var ')
-    .replace(/let\s+/g, 'let ')
-    .replace(/const\s+/g, 'const ')
-    .trim();
-}
-
-// 最小化 HTML
-function minifyHTML(html) {
-  return html
-    // 移除註解
-    .replace(/<!--[\s\S]*?-->/g, '')
-    // 移除多餘的空白
-    .replace(/\s+/g, ' ')
-    // 移除標籤間的空白
-    .replace(/>\s+</g, '><')
+    // 移除行尾空白
+    .replace(/\s+$/gm, '')
+    // 將多個空白轉為單一空白
+    .replace(/  +/g, ' ')
     .trim();
 }
 
 // 處理檔案
 const minifiedCSS = minifyCSS(css);
-const minifiedJS = minifyJS(js);
+// JavaScript 不做最小化以避免破壞程式邏輯（檔案已經很小）
+const minifiedJS = js;
 
 // 將 CSS 和 JS 內嵌到 HTML 中，並替換版本號
 let finalHTML = html
   .replace('<link rel="stylesheet" href="style.css">', `<style>${minifiedCSS}</style>`)
   .replace('<script src="app.js"></script>', `<script>${minifiedJS}</script>`)
   .replace('__VERSION__', version);
-
-// 最小化最終的 HTML
-finalHTML = minifyHTML(finalHTML);
 
 // 寫入 dist 目錄
 writeFileSync('dist/index.html', finalHTML);
