@@ -3,8 +3,6 @@ const aiProviderUrls = {
     'chatgpt': 'https://chatgpt.com/',
     'claude': 'https://claude.ai/',
     'gemini': 'https://gemini.google.com/app',
-    'phind-search': 'https://www.phind.com/search?home=true',
-    'phind-chat': 'https://www.phind.com/agent?home=true',
     'groq': 'https://groq.com/',
     'perplexity': 'https://www.perplexity.ai/'
 };
@@ -14,8 +12,6 @@ const aiProviderNames = {
     'chatgpt': 'ChatGPT',
     'claude': 'Claude',
     'gemini': 'Gemini',
-    'phind-search': 'phind - Search',
-    'phind-chat': 'phind - Chat',
     'groq': 'Groq',
     'perplexity': 'Perplexity'
 };
@@ -275,7 +271,6 @@ function run() {
     if (firstForm.baseurl.value.startsWith('https://chatgpt.com')) ask.innerHTML = '開啟 ChatGPT 提問'
     if (firstForm.baseurl.value.startsWith('https://gemini.google.com')) ask.innerHTML = '開啟 Gemini 提問'
     if (firstForm.baseurl.value.startsWith('https://claude.ai')) ask.innerHTML = '開啟 Claude 提問'
-    if (firstForm.baseurl.value.startsWith('https://www.phind.com')) ask.innerHTML = '開啟 phind 提問'
     if (firstForm.baseurl.value.startsWith('https://groq.com')) ask.innerHTML = '開啟 Groq 提問'
     if (firstForm.baseurl.value.startsWith('https://www.perplexity.ai')) ask.innerHTML = '開啟 Perplexity 提問'
     
