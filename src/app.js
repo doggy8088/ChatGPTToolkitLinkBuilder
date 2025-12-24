@@ -1,3 +1,37 @@
+// AI 提供者對應網址
+const aiProviderUrls = {
+    'chatgpt': 'https://chatgpt.com/',
+    'chatgpt-4': 'https://chatgpt.com/?model=gpt-4',
+    'chatgpt-4o': 'https://chatgpt.com/?model=gpt-4o',
+    'chatgpt-4o-canvas': 'https://chatgpt.com/?model=gpt-4o-canmore',
+    'chatgpt-4o-mini': 'https://chatgpt.com/?model=gpt-4o-mini',
+    'chatgpt-o1-preview': 'https://chatgpt.com/?model=o1-preview',
+    'chatgpt-o1-mini': 'https://chatgpt.com/?model=o1-mini',
+    'claude': 'https://claude.ai/',
+    'gemini': 'https://gemini.google.com/app',
+    'phind-search': 'https://www.phind.com/search?home=true',
+    'phind-chat': 'https://www.phind.com/agent?home=true',
+    'groq': 'https://groq.com/',
+    'perplexity': 'https://www.perplexity.ai/'
+};
+
+// AI 提供者顯示名稱
+const aiProviderNames = {
+    'chatgpt': 'ChatGPT',
+    'chatgpt-4': 'ChatGPT 4',
+    'chatgpt-4o': 'ChatGPT 4o',
+    'chatgpt-4o-canvas': 'ChatGPT 4o with canvas',
+    'chatgpt-4o-mini': 'ChatGPT 4o mini',
+    'chatgpt-o1-preview': 'ChatGPT o1-preview',
+    'chatgpt-o1-mini': 'ChatGPT o1 mini',
+    'claude': 'Claude',
+    'gemini': 'Gemini',
+    'phind-search': 'phind - Search',
+    'phind-chat': 'phind - Chat',
+    'groq': 'Groq',
+    'perplexity': 'Perplexity'
+};
+
 // 提示範本列表
 let promptList = [{
     name: '-- 選取提示範本 --',
@@ -11,6 +45,39 @@ let promptList = [{
 }, {
     name: '總結長文內容',
     value: 'Please help me summarize content and list the key points. Then translate all the content into Traditional Chinese. No explanations and additional information of the translations are required. Do not add pronunciation annotations.'
+}, {
+    name: '擴寫文章',
+    value: '請幫我擴寫以下文章內容，使其更加詳細、豐富，並保持原有的語氣和風格。'
+}, {
+    name: '改寫文章',
+    value: '請幫我改寫以下文章，使用不同的表達方式，但保持原意不變。'
+}, {
+    name: '修正錯字與文法',
+    value: '請幫我檢查並修正以下內容的錯字、標點符號和文法錯誤，並提供修正後的完整內容。'
+}, {
+    name: '改寫郵件（專業版）',
+    value: '請幫我將以下內容改寫成專業且禮貌的商業郵件格式。'
+}, {
+    name: '縮減文字量',
+    value: '請幫我將以下內容精簡，保留核心重點，減少不必要的描述。'
+}, {
+    name: 'Code Review',
+    value: 'Please review the following code and provide feedback on code quality, potential bugs, performance issues, and best practices. Suggest improvements where necessary.'
+}, {
+    name: '最佳化程式碼',
+    value: 'Please optimize the following code for better performance, readability, and maintainability. Explain the changes you make.'
+}, {
+    name: '將 PRD 轉成 Spec',
+    value: '請將以下產品需求文件（PRD）轉換為詳細的技術規格文件（Spec），包含系統架構、API 設計、資料模型等技術細節。'
+}, {
+    name: '整理會議記錄',
+    value: '請幫我整理以下會議記錄，提取重點、決議事項、待辦事項，並以清晰的格式呈現。'
+}, {
+    name: '生成測試計畫',
+    value: '請根據以下需求或功能描述，生成一份完整的測試計畫，包含測試範圍、測試案例、預期結果等。'
+}, {
+    name: '解析 PDF 並總結內容',
+    value: '請幫我解析並總結這份文件的主要內容，提取關鍵資訊和重點摘要。'
 }];
 
 // 初始化提示範本下拉選單
@@ -27,6 +94,38 @@ promptTemplates.addEventListener('change', (evt) => {
 
    promptText.value = val;
    run();
+});
+
+// 監聽 AI 提供者選擇變更
+const aiProviderSelect = document.getElementById('aiProvider');
+const baseurlInput = document.getElementById('baseurl');
+
+aiProviderSelect.addEventListener('change', (evt) => {
+    const selectedProvider = evt.target.value;
+    const url = aiProviderUrls[selectedProvider];
+    if (url) {
+        baseurlInput.value = url;
+    }
+    // 自動填入提示詞標題
+    const providerName = aiProviderNames[selectedProvider];
+    if (providerName && !firstForm.subject.value) {
+        firstForm.subject.value = providerName;
+    }
+    run();
+});
+
+// 進階設定切換
+const advancedToggle = document.getElementById('advancedToggle');
+const advancedSettings = document.getElementById('advancedSettings');
+
+advancedToggle.addEventListener('click', () => {
+    if (advancedSettings.style.display === 'none') {
+        advancedSettings.style.display = 'block';
+        advancedToggle.textContent = '▲ 進階設定';
+    } else {
+        advancedSettings.style.display = 'none';
+        advancedToggle.textContent = '▼ 進階設定';
+    }
 });
 
 // Base64 編碼 Unicode 字串
@@ -103,8 +202,15 @@ function loadDataFromLocalStorage() {
         }
     });
 
+    // 初始化 AI 提供者選擇
+    if (!firstForm.aiProvider.value) {
+        firstForm.aiProvider.value = 'chatgpt-4o-mini';
+    }
+    
+    // 如果沒有設定 baseurl，使用選中的 AI 提供者的預設 URL
     if (!firstForm.baseurl.value) {
-        firstForm.baseurl.value = 'https://chatgpt.com/?model=gpt-4o-mini';
+        const selectedProvider = firstForm.aiProvider.value;
+        firstForm.baseurl.value = aiProviderUrls[selectedProvider] || 'https://chatgpt.com/?model=gpt-4o-mini';
     }
 }
 
