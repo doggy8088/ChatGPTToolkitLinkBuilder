@@ -108,7 +108,7 @@ aiProviderSelect.addEventListener('change', (evt) => {
     }
     // 自動填入提示詞標題
     const providerName = aiProviderNames[selectedProvider];
-    if (providerName && !firstForm.subject.value) {
+    if (providerName && !firstForm.subject.value.trim()) {
         firstForm.subject.value = providerName;
     }
     run();
@@ -117,9 +117,11 @@ aiProviderSelect.addEventListener('change', (evt) => {
 // 進階設定切換
 const advancedToggle = document.getElementById('advancedToggle');
 const advancedSettings = document.getElementById('advancedSettings');
+let isAdvancedOpen = false;
 
 advancedToggle.addEventListener('click', () => {
-    if (advancedSettings.style.display === 'none') {
+    isAdvancedOpen = !isAdvancedOpen;
+    if (isAdvancedOpen) {
         advancedSettings.style.display = 'block';
         advancedToggle.textContent = '▲ 進階設定';
     } else {
