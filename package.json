@@ -1,0 +1,11 @@
+{
+  "name": "chatgpt-toolkit-link-builder",
+  "version": "1.0.0",
+  "description": "ChatGPT 萬能工具箱：提示連結產生器",
+  "author": "Will 保哥",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

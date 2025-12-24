@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT 萬能工具箱：提示連結產生器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>ChatGPT 萬能工具箱</h1>
+      <p style="font-size: 1.2rem; color: #6b7280; font-weight: 500;">提示連結產生器</p>
+      <p class="version">版本：__VERSION__</p>
+    </header>
+
+    <form>
+      <div class="form-group">
+        <label for="baseurl" class="form-label">
+          提問網址
+        </label>
+        <p class="info-text" style="margin-bottom: 8px;">
+          可使用 
+          <a class="link-highlight" href="https://chatgpt.com/">ChatGPT</a>、
+          <a class="link-highlight" href="https://chatgpt.com/g/g-To1h9Sf1w-ying-wen-zi-dian-xiao-jing-ling">GPTs</a>、
+          <a class="link-highlight" href="https://claude.ai/">Claude</a>、
+          <a class="link-highlight" href="https://gemini.google.com/app">Gemini</a>、
+          <a class="link-highlight" href="https://www.phind.com/search?home=true">phind</a>、
+          <a class="link-highlight" href="https://groq.com/">Groq</a>、
+          <a class="link-highlight" href="https://www.perplexity.ai/">Perplexity</a> 網址
+        </p>
+        <input type="search" name="baseurl" id="baseurl" placeholder="選擇或輸入提問網址" list="suggestions" class="form-input" />
+        <datalist id="suggestions">
+          <option value="https://chatgpt.com/">ChatGPT</option>
+          <option value="https://chatgpt.com/?model=gpt-4">ChatGPT 4</option>
+          <option value="https://chatgpt.com/?model=gpt-4o">ChatGPT 4o</option>
+          <option value="https://chatgpt.com/?model=gpt-4o-canmore">ChatGPT 4o with canvas</option>
+          <option value="https://chatgpt.com/?model=gpt-4o-mini">ChatGPT 4o mini</option>
+          <option value="https://chatgpt.com/?model=o1-preview">ChatGPT o1-preview</option>
+          <option value="https://chatgpt.com/?model=o1-mini">ChatGPT o1 mini</option>
+          <option value="https://groq.com/">Groq</option>
+          <option value="https://claude.ai/">Claude</option>
+          <option value="https://gemini.google.com/app">Gemini</option>
+          <option value="https://www.perplexity.ai/">Perplexity</option>
+          <option value="https://www.phind.com/search?home=true">phind - Search</option>
+          <option value="https://www.phind.com/agent?home=true">phind - Chat</option>
+          <option value="https://chatgpt.com/g/g-To1h9Sf1w-ying-wen-zi-dian-xiao-jing-ling">GPTs: 英文字典小精靈</option>
+          <option value="https://chatgpt.com/g/g-CoQmELkAS-net-kai-fa-ren-yuan-zhu-shou">GPTs: .NET 開發人員助手</option>
+          <option value="https://chatgpt.com/g/g-zgWEF1ldR-angular-guru">GPTs: Angular Guru</option>
+          <option value="https://chatgpt.com/g/g-lHWD2UFQn-angular-versions-checker">GPTs: Angular Versions Checker</option>
+          <option value="https://chatgpt.com/g/g-O2KHDUhiB-azure-yun-duan-zhuan-jia">GPTs: Azure 雲端專家</option>
+          <option value="https://chatgpt.com/g/g-lXF5G86yq-bash-experts">GPTs: Bash Experts</option>
+          <option value="https://chatgpt.com/g/g-EcWmyumlm-batch-script-buddy">GPTs: Batch Script Buddy</option>
+          <option value="https://chatgpt.com/g/g-CD69zJ5Sf-get-my-prompt-challenge">GPTs: Get My Prompt Challenge</option>
+          <option value="https://chatgpt.com/g/g-StoZU8jM8-html5-qian-duan-kai-fa-zhuan-jia">GPTs: HTML5 前端開發專家</option>
+          <option value="https://chatgpt.com/g/g-iCZjzwc7f-mermaid-tu-biao-chan-sheng-qi">GPTs: Mermaid 圖表產生器</option>
+          <option value="https://chatgpt.com/g/g-UV3ZNiI9Q-oracle-zi-liao-ku-zhuan-jia">GPTs: Oracle 資料庫專家</option>
+          <option value="https://chatgpt.com/g/g-WgKtBSJz5-power-automate-gong-zuo-liu-cheng-biao-da-han-shi-da-shi">GPTs: Power Automate 工作流程表達函式大師</option>
+          <option value="https://chatgpt.com/g/g-lVbzhyr6X-powershell-experts">GPTs: PowerShell Experts</option>
+          <option value="https://chatgpt.com/g/g-0kXjMEtlF-skaffold-cli-references">GPTs: Skaffold CLI References</option>
+          <option value="https://chatgpt.com/g/g-ilxRxNIdI-sql-server-zi-liao-ku-zhuan-jia">GPTs: SQL Server 資料庫專家</option>
+          <option value="https://chatgpt.com/g/g-0BmA92Hqy-table-to-json">GPTs: Table to JSON</option>
+          <option value="https://chatgpt.com/g/g-gp3RgSZNs-jin-ri-re-men-geng-tu">GPTs: 今日熱門梗圖</option>
+          <option value="https://chatgpt.com/g/g-Dv7AL6qW0-tai-bei-lu-you-tong">GPTs: 台北旅遊通</option>
+          <option value="https://chatgpt.com/g/g-q1k0AJ8Ji-tuan-gou-dui-zhang-zhu-shou">GPTs: 團購對帳助手</option>
+          <option value="https://chatgpt.com/g/g-1gcpmD4nB-huan-xiao-yi-luo-kuang">GPTs: 歡笑一籮筐</option>
+          <option value="https://chatgpt.com/g/g-UEZYckKpa-cheng-shi-ma-you-hua-da-shi">GPTs: 程式碼優化大師</option>
+          <option value="https://chatgpt.com/g/g-PhC9oPNmW-fan-yi-ju-ruo-yin-ni-yu">GPTs: 翻譯蒟蒻 ( 印尼語 )</option>
+          <option value="https://chatgpt.com/g/g-LOHrzsM62-fan-yi-ju-ruo-ke-li-dao-yu">GPTs: 翻譯蒟蒻 ( 峇里島語 )</option>
+          <option value="https://chatgpt.com/g/g-l6hd8Y6SY-fan-yi-ju-ruo-ri-ben-yu">GPTs: 翻譯蒟蒻 ( 日本語 )</option>
+          <option value="https://chatgpt.com/g/g-keGtlu7Ud-fan-yi-ju-ruo-fa-yu">GPTs: 翻譯蒟蒻 ( 法語 )</option>
+          <option value="https://chatgpt.com/g/g-36N3H6HAV-fan-yi-ju-ruo-tai-yu">GPTs: 翻譯蒟蒻 ( 泰語 )</option>
+          <option value="https://chatgpt.com/g/g-BF3cZpAJu-fan-yi-ju-ruo-yue-yu">GPTs: 翻譯蒟蒻 ( 粵語 )</option>
+          <option value="https://chatgpt.com/g/g-SI9puRCxP-fan-yi-ju-ruo-mian-dian-yu">GPTs: 翻譯蒟蒻 ( 緬甸語 )</option>
+          <option value="https://chatgpt.com/g/g-aO00zwMML-fan-yi-ju-ruo-ying-yu">GPTs: 翻譯蒟蒻 ( 英語 )</option>
+          <option value="https://chatgpt.com/g/g-AxaTXZrVj-fan-yi-ju-ruo-fei-lu-bin-yu">GPTs: 翻譯蒟蒻 ( 菲律賓語 )</option>
+          <option value="https://chatgpt.com/g/g-L3c3svu0U-fan-yi-ju-ruo-pu-tao-ya-yu">GPTs: 翻譯蒟蒻 ( 葡萄牙語 )</option>
+          <option value="https://chatgpt.com/g/g-CmSNvuTkh-fan-yi-ju-ruo-xi-ban-ya-yu">GPTs: 翻譯蒟蒻 ( 西班牙語 )</option>
+          <option value="https://chatgpt.com/g/g-1pdbP2FLH-fan-yi-ju-ruo-yue-nan-yu">GPTs: 翻譯蒟蒻 ( 越南語 )</option>
+          <option value="https://chatgpt.com/g/g-Dv5aEUnL9-fan-yi-ju-ruo-han-yu">GPTs: 翻譯蒟蒻 ( 韓語 )</option>
+          <option value="https://chatgpt.com/g/g-hQHOYoZnu-ying-wen-wen-fa-jing-xiu-da-shi">GPTs: 英文文法精修大師</option>
+          <option value="https://chatgpt.com/g/g-w77pzkGDh-tie-shang-curl-bash-zhuan-huan-cheng-c-cheng-shi-ma">GPTs: 貼上 cURL (bash) 轉換成 C# 程式碼</option>
+          <option value="https://chatgpt.com/g/g-bRh49kaYL-tie-shang-json-wo-bang-ni-zhuan-cheng-openapi-3-0-gui-ge">GPTs: 貼上 JSON 我幫你轉成 OpenAPI 3.0 規格</option>
+          <option value="https://chatgpt.com/g/g-UJq3RW2cG-tie-shang-json-zhuan-huan-cheng-c-mo-xing-lei-bie">GPTs: 貼上 JSON 轉換成 C# 模型類別</option>
+          <option value="https://chatgpt.com/g/g-sJWTd3KJT-qing-song-jian-li-ssl-tls-zi-qian-ping-zheng">GPTs: 輕鬆建立 SSL/TLS 自簽憑證</option>
+          <option value="https://chatgpt.com/g/g-AWhPjxJ7n-bu-luo-ge-wen-zhang-pei-tu-da-shi">GPTs: 部落格文章配圖大師</option>
+        </datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="subject" class="form-label">提示詞標題</label>
+        <p class="info-text" style="margin-bottom: 8px;">用在書籤標題</p>
+        <input type="text" name="subject" id="subject" placeholder="請輸入「我的最愛」的連結標題" class="form-input"/>
+      </div>
+
+      <div class="form-group">
+        <label for="promptText" class="form-label">你的提示詞 (Prompt)</label>
+        <p class="info-text" style="margin-bottom: 8px;">若要當成網站搜尋用途請記得加上 <mark>%s</mark> 代表使用者搜尋的內容</p>
+        <select id="promptTemplates" class="form-select" style="margin-bottom: 12px;"></select>
+        <textarea rows="4" name="prompt" id="promptText" placeholder="請輸入提示詞" autofocus class="form-textarea"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label checkbox-group">
+          <input type="checkbox" name="autoSubmit" id="autoSubmit" class="checkbox-input"/>
+          是否要自動送出提示詞
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label checkbox-group">
+          <input type="checkbox" name="pasteImage" id="pasteImage" class="checkbox-input"/>
+          是否要自動貼上剪貼簿中的圖片
+        </label>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <button id="ask" type="button" onclick="openChatGPT()" class="btn">開啟 ChatGPT 提問</button>
+        <button id="share" type="button" onclick="share()" class="btn">分享這組提示</button>
+      </div>
+    </form>
+
+    <div class="result-section">
+      <p class="result-title">你的書籤連結</p>
+      <div style="margin-bottom: 12px;">▶ <span id="result"></span></div>
+      <p class="info-text">你可以拖曳超連結到瀏覽器的書籤列上，按下 <span class="code-text">Ctrl+Shift+B</span> 可切換顯示</p>
+
+      <hr>
+
+      <p class="result-title">滑鼠點擊以下 URL 即可將網址自動複製到剪貼簿中：</p>
+      <textarea rows="2" name="promptUrl" id="promptUrl" placeholder="" class="form-textarea" style="font-family: monospace; font-size: 0.875rem;"></textarea>
+
+      <p class="result-title" style="margin-top: 24px;">滑鼠點擊以下 Markdown 語法即可將內容自動複製到剪貼簿中：</p>
+      <textarea rows="2" name="promptMarkdown" id="promptMarkdown" placeholder="" class="form-textarea" style="font-family: monospace; font-size: 0.875rem;"></textarea>
+
+      <hr>
+
+      <p class="result-title">網站搜尋設定值</p>
+      <p class="info-text" style="margin-bottom: 16px;">
+        參考: <a class="link-highlight" href="https://support.google.com/chrome/answer/95426?hl=en">Set default search engine and site search shortcuts</a>
+        <br>Chrome 設定: <span class="code-text">chrome://settings/searchEngines</span>
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 35%;">欄位</th>
+              <th>設定值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>搜尋引擎</strong><br><small style="color: #6b7280;">Search engine</small></td>
+              <td><input type="text" id="searchengine_search" class="form-input"></td>
+            </tr>
+            <tr>
+              <td><strong>快捷字詞</strong><br><small style="color: #6b7280;">Shortcut</small></td>
+              <td><input type="text" id="searchengine_shortcut" placeholder="請設定一個簡短的代碼，例如: ss" class="form-input"></td>
+            </tr>
+            <tr>
+              <td><strong>以 %s 取代查詢的網址</strong><br><small style="color: #6b7280;">URL with %s in place of query</small></td>
+              <td><textarea id="searchengine_url" class="form-textarea" rows="3"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="footer">
+      使用前別忘了先安裝 <a href="https://chrome.google.com/webstore/detail/chatgpt-%E8%90%AC%E8%83%BD%E5%B7%A5%E5%85%B7%E7%AE%B1/fmijcafgekkphdijpclfgnjhchmiokgp?hl=zh-TW" target="_blank">ChatGPT 萬能工具箱</a> 喔！
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
