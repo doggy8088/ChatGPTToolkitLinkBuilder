@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width">
+  <title>ChatGPT 萬能工具箱：提示連結產生器</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<div class="mx-auto w-full max-w-[700px] py-3 mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-4xl text-center">
+    ChatGPT 萬能工具箱：提示連結產生器
+</div>
+
+<div class="flex items-center justify-center">
+
+  <div class="mx-auto w-full max-w-[650px]">
+
+    <form action="https://formbold.com/s/FORM_ID" method="POST">
+
+    <div class="mb-5">
+        <label for="baseurl" class="mb-3 block text-base font-medium text-[#07074D]"></label>
+          提問網址 (可使用 <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://chatgpt.com/">ChatGPT</a>, <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://chatgpt.com/g/g-To1h9Sf1w-ying-wen-zi-dian-xiao-jing-ling">GPTs</a>, <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://claude.ai/">Claude</a>, <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://gemini.google.com/app">Gemini</a>, <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://www.phind.com/search?home=true">phind</a>, <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://groq.com/">Groq</a>, <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://www.perplexity.ai/">Perplexity</a> 網址)
+        </label>
+        <input type="search" name="baseurl" id="baseurl" placeholder="" list="suggestions"
+          class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+        <datalist id="suggestions">
+            <option value="https://chatgpt.com/">ChatGPT</option>
+            <option value="https://chatgpt.com/?model=gpt-4">ChatGPT 4</option>
+            <option value="https://chatgpt.com/?model=gpt-4o">ChatGPT 4o</option>
+            <option value="https://chatgpt.com/?model=gpt-4o-canmore">ChatGPT 4o with canvas</option>
+            <option value="https://chatgpt.com/?model=gpt-4o-mini">ChatGPT 4o mini</option>
+            <option value="https://chatgpt.com/?model=o1-preview">ChatGPT o1-preview</option>
+            <option value="https://chatgpt.com/?model=o1-mini">ChatGPT o1 mini</option>
+            <option value="https://groq.com/">Groq</option>
+            <option value="https://claude.ai/">Claude</option>
+            <option value="https://gemini.google.com/app">Gemini</option>
+            <option value="https://www.perplexity.ai/">Perplexity</option>
+            <option value="https://www.phind.com/search?home=true">phind - Search</option>
+            <option value="https://www.phind.com/agent?home=true">phind - Chat</option>
+            <option value="https://chatgpt.com/g/g-To1h9Sf1w-ying-wen-zi-dian-xiao-jing-ling">GPTs: 英文字典小精靈</option>
+            <option value="https://chatgpt.com/g/g-CoQmELkAS-net-kai-fa-ren-yuan-zhu-shou">GPTs: .NET 開發人員助手</option>
+            <option value="https://chatgpt.com/g/g-zgWEF1ldR-angular-guru">GPTs: Angular Guru</option>
+            <option value="https://chatgpt.com/g/g-lHWD2UFQn-angular-versions-checker">GPTs: Angular Versions Checker</option>
+            <option value="https://chatgpt.com/g/g-O2KHDUhiB-azure-yun-duan-zhuan-jia">GPTs: Azure 雲端專家</option>
+            <option value="https://chatgpt.com/g/g-lXF5G86yq-bash-experts">GPTs: Bash Experts</option>
+            <option value="https://chatgpt.com/g/g-EcWmyumlm-batch-script-buddy">GPTs: Batch Script Buddy</option>
+            <option value="https://chatgpt.com/g/g-CD69zJ5Sf-get-my-prompt-challenge">GPTs: Get My Prompt Challenge</option>
+            <option value="https://chatgpt.com/g/g-StoZU8jM8-html5-qian-duan-kai-fa-zhuan-jia">GPTs: HTML5 前端開發專家</option>
+            <option value="https://chatgpt.com/g/g-iCZjzwc7f-mermaid-tu-biao-chan-sheng-qi">GPTs: Mermaid 圖表產生器</option>
+            <option value="https://chatgpt.com/g/g-UV3ZNiI9Q-oracle-zi-liao-ku-zhuan-jia">GPTs: Oracle 資料庫專家</option>
+            <option value="https://chatgpt.com/g/g-WgKtBSJz5-power-automate-gong-zuo-liu-cheng-biao-da-han-shi-da-shi">GPTs: Power Automate 工作流程表達函式大師</option>
+            <option value="https://chatgpt.com/g/g-lVbzhyr6X-powershell-experts">GPTs: PowerShell Experts</option>
+            <option value="https://chatgpt.com/g/g-0kXjMEtlF-skaffold-cli-references">GPTs: Skaffold CLI References</option>
+            <option value="https://chatgpt.com/g/g-ilxRxNIdI-sql-server-zi-liao-ku-zhuan-jia">GPTs: SQL Server 資料庫專家</option>
+            <option value="https://chatgpt.com/g/g-0BmA92Hqy-table-to-json">GPTs: Table to JSON</option>
+            <option value="https://chatgpt.com/g/g-gp3RgSZNs-jin-ri-re-men-geng-tu">GPTs: 今日熱門梗圖</option>
+            <option value="https://chatgpt.com/g/g-Dv7AL6qW0-tai-bei-lu-you-tong">GPTs: 台北旅遊通</option>
+            <option value="https://chatgpt.com/g/g-q1k0AJ8Ji-tuan-gou-dui-zhang-zhu-shou">GPTs: 團購對帳助手</option>
+            <option value="https://chatgpt.com/g/g-1gcpmD4nB-huan-xiao-yi-luo-kuang">GPTs: 歡笑一籮筐</option>
+            <option value="https://chatgpt.com/g/g-UEZYckKpa-cheng-shi-ma-you-hua-da-shi">GPTs: 程式碼優化大師</option>
+            <option value="https://chatgpt.com/g/g-PhC9oPNmW-fan-yi-ju-ruo-yin-ni-yu">GPTs: 翻譯蒟蒻 ( 印尼語 )</option>
+            <option value="https://chatgpt.com/g/g-LOHrzsM62-fan-yi-ju-ruo-ke-li-dao-yu">GPTs: 翻譯蒟蒻 ( 峇里島語 )</option>
+            <option value="https://chatgpt.com/g/g-l6hd8Y6SY-fan-yi-ju-ruo-ri-ben-yu">GPTs: 翻譯蒟蒻 ( 日本語 )</option>
+            <option value="https://chatgpt.com/g/g-keGtlu7Ud-fan-yi-ju-ruo-fa-yu">GPTs: 翻譯蒟蒻 ( 法語 )</option>
+            <option value="https://chatgpt.com/g/g-36N3H6HAV-fan-yi-ju-ruo-tai-yu">GPTs: 翻譯蒟蒻 ( 泰語 )</option>
+            <option value="https://chatgpt.com/g/g-BF3cZpAJu-fan-yi-ju-ruo-yue-yu">GPTs: 翻譯蒟蒻 ( 粵語 )</option>
+            <option value="https://chatgpt.com/g/g-SI9puRCxP-fan-yi-ju-ruo-mian-dian-yu">GPTs: 翻譯蒟蒻 ( 緬甸語 )</option>
+            <option value="https://chatgpt.com/g/g-aO00zwMML-fan-yi-ju-ruo-ying-yu">GPTs: 翻譯蒟蒻 ( 英語 )</option>
+            <option value="https://chatgpt.com/g/g-AxaTXZrVj-fan-yi-ju-ruo-fei-lu-bin-yu">GPTs: 翻譯蒟蒻 ( 菲律賓語 )</option>
+            <option value="https://chatgpt.com/g/g-L3c3svu0U-fan-yi-ju-ruo-pu-tao-ya-yu">GPTs: 翻譯蒟蒻 ( 葡萄牙語 )</option>
+            <option value="https://chatgpt.com/g/g-CmSNvuTkh-fan-yi-ju-ruo-xi-ban-ya-yu">GPTs: 翻譯蒟蒻 ( 西班牙語 )</option>
+            <option value="https://chatgpt.com/g/g-1pdbP2FLH-fan-yi-ju-ruo-yue-nan-yu">GPTs: 翻譯蒟蒻 ( 越南語 )</option>
+            <option value="https://chatgpt.com/g/g-Dv5aEUnL9-fan-yi-ju-ruo-han-yu">GPTs: 翻譯蒟蒻 ( 韓語 )</option>
+            <option value="https://chatgpt.com/g/g-hQHOYoZnu-ying-wen-wen-fa-jing-xiu-da-shi">GPTs: 英文文法精修大師</option>
+            <option value="https://chatgpt.com/g/g-w77pzkGDh-tie-shang-curl-bash-zhuan-huan-cheng-c-cheng-shi-ma">GPTs: 貼上 cURL (bash) 轉換成 C# 程式碼</option>
+            <option value="https://chatgpt.com/g/g-bRh49kaYL-tie-shang-json-wo-bang-ni-zhuan-cheng-openapi-3-0-gui-ge">GPTs: 貼上 JSON 我幫你轉成 OpenAPI 3.0 規格</option>
+            <option value="https://chatgpt.com/g/g-UJq3RW2cG-tie-shang-json-zhuan-huan-cheng-c-mo-xing-lei-bie">GPTs: 貼上 JSON 轉換成 C# 模型類別</option>
+            <option value="https://chatgpt.com/g/g-sJWTd3KJT-qing-song-jian-li-ssl-tls-zi-qian-ping-zheng">GPTs: 輕鬆建立 SSL/TLS 自簽憑證</option>
+            <option value="https://chatgpt.com/g/g-AWhPjxJ7n-bu-luo-ge-wen-zhang-pei-tu-da-shi">GPTs: 部落格文章配圖大師</option>
+        </datalist>
+      </div>
+      <div class="mb-5">
+        <label for="subject" class="mb-3 block text-base font-medium text-[#07074D]">
+          提示詞標題 (用在書籤標題)
+        </label>
+        <input type="text" name="subject" id="subject" placeholder="請輸入「我的最愛」的連結標題" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
+      </div>
+      <div class="mb-5">
+        <label for="promptText" class="mb-3 block text-base font-medium text-[#07074D]">
+          你的提示詞 (Prompt) (若要當成網站搜尋用途請記得加上 <mark>%s</mark> 代表使用者搜尋的內容)
+        </label>
+        <select id="promptTemplates"
+            class="resize-y my-3 overflow-auto w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+        </select>
+        <textarea rows="4" name="prompt" id="promptText" placeholder="請輸入提示詞" autofocus
+          class="resize-y overflow-auto w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
+      </div>
+      <div class="mb-5">
+        <label for="autoSubmit" class="mb-3 block text-base font-medium text-[#07074D]">
+          是否要自動送出提示詞
+          <input type="checkbox" name="autoSubmit" id="autoSubmit" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"/>
+        </label>
+      </div>
+      <div class="mb-5">
+        <label for="pasteImage" class="mb-3 block text-base font-medium text-[#07074D]">
+          是否要自動貼上剪貼簿中的圖片
+          <input type="checkbox" name="pasteImage" id="pasteImage" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"/>
+        </label>
+      </div>
+
+    </form>
+
+    <div>
+        <button id="ask" type="button" onclick="openChatGPT()" class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
+            開啟 ChatGPT 提問
+        </button>
+        <button id="share" data-popover-target="popover-right" data-popover-placement="right" type="button" onclick="share()" class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
+            分享這組提示
+        </button>
+        <div data-popover id="popover-right" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+            <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                <h3 class="font-semibold text-gray-900 dark:text-white">說明</h3>
+            </div>
+            <div class="px-3 py-2">
+                <p>點擊此按鈕會自動複製提示連結產生器的網址到剪貼簿，你可以直接將網址分享給需要的朋友，讓他們也能修改提示文字後使用。</p>
+            </div>
+            <div data-popper-arrow></div>
+        </div>
+    </div>
+
+    <hr style="margin: 20px 0">
+
+    你的書籤連結 ▶ <span id="result"></span>
+    <br>
+    ( 你可以拖曳超連結到瀏覽器的書籤列上，按下 <code>Ctrl+Shift+B</code> 可切換顯示 )
+
+    <br><br>
+
+    <p>滑鼠點擊以下 URL 即可將網址自動複製到剪貼簿中：</p>
+
+    <textarea
+            rows="2"
+            name="promptUrl"
+            id="promptUrl"
+            placeholder=""
+            style="white-space: pre;"
+            class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            ></textarea>
+
+    <br><br>
+
+    <p>滑鼠點擊以下 Markdown 語法即可將內容自動複製到剪貼簿中：</p>
+
+    <textarea
+            rows="2"
+            name="promptMarkdown"
+            id="promptMarkdown"
+            placeholder=""
+            style="white-space: pre;"
+            class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            ></textarea>
+
+    <br><br>
+
+    <p>網站搜尋設定值：(<a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://support.google.com/chrome/answer/95426?hl=en" class="">Set default search engine and site search shortcuts</a>)</p>
+
+    <p>Chrome 設定: <strong>chrome://settings/searchEngines</strong></p>
+
+    <table class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+        <tr>
+            <th style="border: 1px solid #e0e0e0; width: 40%">欄位</th>
+            <th style="border: 1px solid #e0e0e0;">設定值</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #e0e0e0;">搜尋引擎<br>Search engine</td>
+            <td style="border: 1px solid #e0e0e0;">
+                <input type="text" id="searchengine_search"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #e0e0e0;">快捷字詞<br>Shortcut</td>
+            <td style="border: 1px solid #e0e0e0;">
+                <input type="text" id="searchengine_shortcut" placeholder="請設定一個簡短的代碼，例如: ss"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #e0e0e0;">以 %s 取代查詢的網址<br>URL with %s in place of query</td>
+            <td style="border: 1px solid #e0e0e0;">
+                <textarea id="searchengine_url"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
+            </td>
+        </tr>
+    </table>
+
+  </div>
+</div>
+
+<footer class="mx-auto w-full max-w-[650px] pb-8">
+  使用前別忘了先安裝 <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://chrome.google.com/webstore/detail/chatgpt-%E8%90%AC%E8%83%BD%E5%B7%A5%E5%85%B7%E7%AE%B1/fmijcafgekkphdijpclfgnjhchmiokgp?hl=zh-TW" target="_blank">ChatGPT 萬能工具箱</a> 喔！
+</footer>
+
+<script>
+
+let promptList = [{
+    name: '-- 選取提示範本 --',
+    value: ''
+}, {
+    name: '使用正體中文回應',
+    value: '請以台灣常用的正體中文回應。'
+}, {
+    name: '翻譯成正體中文',
+    value: 'You are a professional translation AI proficient in Chinese and English language. Please help me translate content into Traditional Chinese with Taiwan culture.'
+}, {
+    name: '總結長文內容',
+    value: 'Please help me summarize content and list the key points. Then translate all the content into Traditional Chinese. No explanations and additional information of the translations are required. Do not add pronunciation annotations.'
+}];
+
+promptList.forEach(item => {
+    promptTemplates.options.add(new Option(item.name, item.value));
+});
+            
+promptTemplates.addEventListener('change', (evt) => {
+   var sel = evt.target;
+   var idx = sel.selectedIndex;
+   var itm = sel.options[idx];
+   var val = itm.value;
+
+   promptText.value = val;
+   run();
+});
+
+function b64EncodeUnicode(str) {
+    const bytes = new TextEncoder().encode(str);
+    const base64 = window.btoa(String.fromCharCode(...new Uint8Array(bytes)));
+    if (base64.length < 64) {
+        return str;
+    } else {
+        return base64;
+    }
+}
+
+function isBase64Unicode(str) {
+    // Base64編碼後的字串僅包含 A-Z、a-z、0-9、+、/、= 這些字元
+    const base64Regex = /^[\w\+\/=]+$/;
+    if (!base64Regex.test(str)) return false;
+
+    try {
+        const decoded = window.atob(str);
+
+        // 解碼後的字串應該是合法的 UTF-8 序列
+        // 使用 TextDecoder 檢查是否可以成功解碼為 Unicode 字串
+        const bytes = new Uint8Array(decoded.length);
+        for (let i = 0; i < decoded.length; i++) {
+            bytes[i] = decoded.charCodeAt(i);
+        }
+        const decoder = new TextDecoder('utf-8');
+        decoder.decode(bytes);
+
+        // 如果沒有拋出異常，則表示是合法的 Base64Unicode 編碼字串
+        return true;
+    } catch (e) {
+        // 解碼失敗，則不是合法的 Base64Unicode 編碼字串
+        return false;
+    }
+}
+
+function b64DecodeUnicode(str) {
+    const bytes = Uint8Array.from(window.atob(str), c => c.charCodeAt(0));
+    const decoded = new TextDecoder().decode(bytes);
+    return decoded;
+}
+
+const firstForm = document.querySelector('form');
+const inputElements = firstForm.querySelectorAll('input, textarea');
+inputElements.forEach(element => element.addEventListener('input', run));
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadDataFromLocalStorage();
+    loadDataFromHash();
+    run();
+    clearLocationHash();
+});
+
+function loadDataFromLocalStorage() {
+    inputElements.forEach(element => {
+        if (element.type == 'checkbox') {
+            if (element.name === 'pasteImage') {
+                element.checked = (localStorage.getItem(element.name) === 'true'); // 預設為 false
+            } else if (element.name === 'autoSubmit') {
+                element.checked = (localStorage.getItem(element.name) !== 'false'); // 預設為 true
+            } else {
+                element.checked = (localStorage.getItem(element.name) === 'true')
+            }
+        } else {
+            element.value = localStorage.getItem(element.name)
+        }
+    });
+
+    if (!firstForm.baseurl.value) {
+        firstForm.baseurl.value = 'https://chatgpt.com/?model=gpt-4o-mini';
+    }
+}
+
+function loadDataFromHash() {
+    var params = new URLSearchParams(location.hash.substring(1));
+    inputElements.forEach(element => {
+        if (params.has(element.name)) {
+            if (element.type == 'checkbox') {
+                element.value = (params.get(element.name) !== 'false')
+            } else {
+                element.value = params.get(element.name)
+            }
+        }
+    });
+}
+
+function clearLocationHash() {
+    if (history.replaceState) {
+        history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    } else {
+        window.location.hash = '';
+    }
+}
+
+promptMarkdown.addEventListener('click', function() {
+       promptMarkdown.select();
+       promptMarkdown.setSelectionRange(0, 99999);
+       document.execCommand("copy");
+});
+
+promptUrl.addEventListener('click', function() {
+       promptUrl.select();
+       promptUrl.setSelectionRange(0, 99999);
+       document.execCommand("copy");
+});
+
+searchengine_search.addEventListener('click', function() {
+       searchengine_search.select();
+       searchengine_search.setSelectionRange(0, 99999);
+       document.execCommand("copy");
+});
+
+searchengine_url.addEventListener('click', function() {
+       searchengine_url.select();
+       searchengine_url.setSelectionRange(0, 99999);
+       document.execCommand("copy");
+});
+
+function openChatGPT() {
+  run();
+  window.open(generateLink(), '_blank');
+}
+
+function run() {
+    inputElements.forEach(element => {
+        if (element.type == 'checkbox') {
+            localStorage.setItem(element.name, element.checked);
+        } else {
+            localStorage.setItem(element.name, element.value);
+        }
+    });
+
+    let promptChatGPTURL = generateLink();
+
+    if (firstForm.baseurl.value.startsWith('https://chatgpt.com')) ask.innerHTML = '開啟 ChatGPT 提問'
+    if (firstForm.baseurl.value.startsWith('https://gemini.google.com')) ask.innerHTML = '開啟 Gemini 提問'
+    if (firstForm.baseurl.value.startsWith('https://claude.ai')) ask.innerHTML = '開啟 Claude 提問'
+    if (firstForm.baseurl.value.startsWith('https://www.phind.com')) ask.innerHTML = '開啟 phind 提問'
+    if (firstForm.baseurl.value.startsWith('https://groq.com')) ask.innerHTML = '開啟 Groq 提問'
+    if (firstForm.baseurl.value.startsWith('https://www.perplexity.ai')) ask.innerHTML = '開啟 Perplexity 提問'
+    
+    let link = document.createElement('a');
+    link.className = 'font-medium text-blue-600 dark:text-blue-500 hover:underline';
+    link.setAttribute('href', promptChatGPTURL);
+    link.setAttribute('target', '_blank');
+    link.innerText = firstForm.subject.value;
+
+    result.innerHTML = '';
+    result.appendChild(link);
+
+    promptMarkdown.value = `[${firstForm.subject.value}](${promptChatGPTURL})`
+    promptUrl.value = `${promptChatGPTURL}`
+
+    searchengine_search.value = firstForm.subject.value;
+    searchengine_url.value = generateLink(true);
+}
+
+function generateLink(sitesearch = false) {
+    let promptTextEncoded = encodeURIComponent(b64EncodeUnicode(firstForm.prompt.value));
+    if (!!sitesearch) {
+        promptTextEncoded = encodeURIComponent(firstForm.prompt.value).replace('%25s', '%s')
+    }
+    return `${firstForm.baseurl.value}#autoSubmit=${firstForm.autoSubmit.checked}&pasteImage=${firstForm.pasteImage.checked}&prompt=${promptTextEncoded}`;
+}
+
+function share() {
+    run();
+
+    let hash = '#';
+    inputElements.forEach(element => {
+        if (element.type == 'checkbox') {
+            hash += element.name + '=' + element.checked + '&';
+        } else {
+            hash += element.name + '=' + encodeURIComponent(element.value) + '&';
+        }
+    });
+
+    location.hash = hash;
+
+    navigator.clipboard.writeText(location.href).then(
+        () => {
+            console.log('clipboard successfully set')
+        },
+        () => {
+            console.log('clipboard write failed');
+        });
+}
+</script>
+
+</body>
+</html>
