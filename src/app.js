@@ -97,8 +97,9 @@ aiProviderSelect.addEventListener('change', (evt) => {
     // 自動填入提示詞標題（僅在使用者未手動修改時）
     const providerName = aiProviderNames[selectedProvider];
     if (providerName) {
+        const currentSubject = firstForm.subject.value.trim();
         // 如果當前標題是空的，或者等於上一次自動設定的值，才更新
-        if (!firstForm.subject.value.trim() || firstForm.subject.value === lastAutoSubject) {
+        if (!currentSubject || currentSubject === lastAutoSubject) {
             firstForm.subject.value = providerName;
             lastAutoSubject = providerName;
             userModifiedSubject = false;
@@ -268,50 +269,42 @@ promptUrl.addEventListener('click', function() {
 const copyUrlBtn = document.getElementById('copyUrlBtn');
 const copyMarkdownBtn = document.getElementById('copyMarkdownBtn');
 
+// 通用複製函數，帶視覺回饋
+function copyToClipboardWithFeedback(text, button) {
+    const originalText = button.innerHTML;
+    navigator.clipboard.writeText(text).then(() => {
+        button.innerHTML = '✓ 已複製';
+        button.classList.add('copied');
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(() => {
+        // 降級處理：使用已選取的文字
+        try {
+            document.execCommand("copy");
+            button.innerHTML = '✓ 已複製';
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        } catch (err) {
+            console.error('複製失敗', err);
+        }
+    });
+}
+
 copyUrlBtn.addEventListener('click', function() {
     promptUrl.select();
     promptUrl.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(promptUrl.value).then(() => {
-        const originalText = copyUrlBtn.innerHTML;
-        copyUrlBtn.innerHTML = '✓ 已複製';
-        copyUrlBtn.classList.add('copied');
-        setTimeout(() => {
-            copyUrlBtn.innerHTML = originalText;
-            copyUrlBtn.classList.remove('copied');
-        }, 2000);
-    }).catch(() => {
-        document.execCommand("copy");
-        const originalText = copyUrlBtn.innerHTML;
-        copyUrlBtn.innerHTML = '✓ 已複製';
-        copyUrlBtn.classList.add('copied');
-        setTimeout(() => {
-            copyUrlBtn.innerHTML = originalText;
-            copyUrlBtn.classList.remove('copied');
-        }, 2000);
-    });
+    copyToClipboardWithFeedback(promptUrl.value, copyUrlBtn);
 });
 
 copyMarkdownBtn.addEventListener('click', function() {
     promptMarkdown.select();
     promptMarkdown.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(promptMarkdown.value).then(() => {
-        const originalText = copyMarkdownBtn.innerHTML;
-        copyMarkdownBtn.innerHTML = '✓ 已複製';
-        copyMarkdownBtn.classList.add('copied');
-        setTimeout(() => {
-            copyMarkdownBtn.innerHTML = originalText;
-            copyMarkdownBtn.classList.remove('copied');
-        }, 2000);
-    }).catch(() => {
-        document.execCommand("copy");
-        const originalText = copyMarkdownBtn.innerHTML;
-        copyMarkdownBtn.innerHTML = '✓ 已複製';
-        copyMarkdownBtn.classList.add('copied');
-        setTimeout(() => {
-            copyMarkdownBtn.innerHTML = originalText;
-            copyMarkdownBtn.classList.remove('copied');
-        }, 2000);
-    });
+    copyToClipboardWithFeedback(promptMarkdown.value, copyMarkdownBtn);
 });
 
 searchengine_search.addEventListener('click', function() {
