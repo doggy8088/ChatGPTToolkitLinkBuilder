@@ -23,8 +23,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: hms5232/install-CNS11643-fonts-action@v1  # 依照需求設定版本號或是 SHA
+    
+      - uses: doggy8088/install-Noto-Sans-TC-fonts-action@v1
+        with:
+          extra: 'true'
+        timeout-minutes: 3
 
       # - name: Setup Node.js
       #   uses: actions/setup-node@v4
