@@ -84,18 +84,37 @@ promptTemplates.addEventListener('change', (evt) => {
 const aiProviderSelect = document.getElementById('aiProvider');
 const baseurlInput = document.getElementById('baseurl');
 
+// 追蹤使用者是否手動修改過提示詞標題
+let userModifiedSubject = false;
+let lastAutoSubject = '';
+
 aiProviderSelect.addEventListener('change', (evt) => {
     const selectedProvider = evt.target.value;
     const url = aiProviderUrls[selectedProvider];
     if (url) {
         baseurlInput.value = url;
     }
-    // 自動填入提示詞標題
+    // 自動填入提示詞標題（僅在使用者未手動修改時）
     const providerName = aiProviderNames[selectedProvider];
-    if (providerName && !firstForm.subject.value.trim()) {
-        firstForm.subject.value = providerName;
+    if (providerName) {
+        const currentSubject = firstForm.subject.value.trim();
+        // 如果當前標題是空的，或者等於上一次自動設定的值，才更新
+        if (!currentSubject || currentSubject === lastAutoSubject) {
+            firstForm.subject.value = providerName;
+            lastAutoSubject = providerName;
+            userModifiedSubject = false;
+        }
     }
     run();
+});
+
+// 監聽提示詞標題的手動修改
+const subjectInput = document.getElementById('subject');
+subjectInput.addEventListener('input', () => {
+    // 如果使用者手動輸入，標記為已修改
+    if (subjectInput.value !== lastAutoSubject) {
+        userModifiedSubject = true;
+    }
 });
 
 // 進階設定切換
@@ -198,6 +217,16 @@ function loadDataFromLocalStorage() {
         const selectedProvider = firstForm.aiProvider.value;
         firstForm.baseurl.value = aiProviderUrls[selectedProvider] || 'https://chatgpt.com/';
     }
+    
+    // 初始化 lastAutoSubject（如果標題等於當前提供者的預設名稱）
+    const currentProvider = firstForm.aiProvider.value;
+    const currentProviderName = aiProviderNames[currentProvider];
+    if (firstForm.subject.value === currentProviderName) {
+        lastAutoSubject = currentProviderName;
+        userModifiedSubject = false;
+    } else if (firstForm.subject.value) {
+        userModifiedSubject = true;
+    }
 }
 
 // 從 URL Hash 載入資料
@@ -234,6 +263,48 @@ promptUrl.addEventListener('click', function() {
    promptUrl.select();
    promptUrl.setSelectionRange(0, 99999);
    document.execCommand("copy");
+});
+
+// 複製按鈕功能
+const copyUrlBtn = document.getElementById('copyUrlBtn');
+const copyMarkdownBtn = document.getElementById('copyMarkdownBtn');
+
+// 通用複製函數，帶視覺回饋
+function copyToClipboardWithFeedback(text, button) {
+    const originalText = button.innerHTML;
+    navigator.clipboard.writeText(text).then(() => {
+        button.innerHTML = '✓ 已複製';
+        button.classList.add('copied');
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(() => {
+        // 降級處理：使用已選取的文字
+        try {
+            document.execCommand("copy");
+            button.innerHTML = '✓ 已複製';
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        } catch (err) {
+            console.error('複製失敗', err);
+        }
+    });
+}
+
+copyUrlBtn.addEventListener('click', function() {
+    promptUrl.select();
+    promptUrl.setSelectionRange(0, 99999);
+    copyToClipboardWithFeedback(promptUrl.value, copyUrlBtn);
+});
+
+copyMarkdownBtn.addEventListener('click', function() {
+    promptMarkdown.select();
+    promptMarkdown.setSelectionRange(0, 99999);
+    copyToClipboardWithFeedback(promptMarkdown.value, copyMarkdownBtn);
 });
 
 searchengine_search.addEventListener('click', function() {

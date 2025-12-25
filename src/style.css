@@ -197,6 +197,115 @@ body::before {
   font-size: 1.1rem;
 }
 
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title-search {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  margin-bottom: 16px;
+}
+
+.bookmark-drag-area {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border: 2px dashed #667eea;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.bookmark-link-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.drag-icon {
+  font-size: 1.2rem;
+  color: #9ca3af;
+  cursor: grab;
+  user-select: none;
+}
+
+.drag-icon:active {
+  cursor: grabbing;
+}
+
+.bookmark-instruction {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.bookmark-instruction p {
+  margin: 0;
+  margin-bottom: 8px;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.bookmark-instruction p:last-child {
+  margin-bottom: 0;
+}
+
+.keyboard-shortcut {
+  margin-top: 8px;
+}
+
+.copy-section {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.copy-section .form-textarea {
+  flex: 1;
+}
+
+.btn-copy {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+.btn-copy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+.btn-copy:active {
+  transform: translateY(0);
+}
+
+.btn-copy.copied {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
 .result-link {
   color: #667eea;
   text-decoration: none;
