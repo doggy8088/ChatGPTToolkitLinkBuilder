@@ -87,21 +87,35 @@
     </form>
 
     <div class="result-section">
-      <p class="result-title">你的書籤連結</p>
-      <div style="margin-bottom: 12px;">▶ <span id="result"></span></div>
-      <p class="info-text">你可以拖曳超連結到瀏覽器的書籤列上，按下 <span class="code-text">Ctrl+Shift+B</span> 可切換顯示</p>
+      <h2 class="section-title">📌 你的書籤連結</h2>
+      <div class="bookmark-drag-area">
+        <div class="bookmark-link-wrapper">
+          <span class="drag-icon">⋮⋮</span>
+          <span id="result"></span>
+        </div>
+        <div class="bookmark-instruction">
+          <p>💡 <strong>使用提示：</strong>請將上方連結拖曳到瀏覽器的書籤列上</p>
+          <p class="keyboard-shortcut">💡 按下 <span class="code-text">Ctrl+Shift+B</span> 可切換書籤列顯示</p>
+        </div>
+      </div>
 
       <hr>
 
-      <p class="result-title">滑鼠點擊以下 URL 即可將網址自動複製到剪貼簿中：</p>
-      <textarea rows="2" name="promptUrl" id="promptUrl" placeholder="" class="form-textarea" style="font-family: monospace; font-size: 0.875rem;"></textarea>
+      <h2 class="section-title">🔗 複製網址連結</h2>
+      <div class="copy-section">
+        <textarea rows="2" name="promptUrl" id="promptUrl" placeholder="" class="form-textarea" style="font-family: monospace; font-size: 0.875rem;"></textarea>
+        <button type="button" id="copyUrlBtn" class="btn-copy">📋 複製</button>
+      </div>
 
-      <p class="result-title" style="margin-top: 24px;">滑鼠點擊以下 Markdown 語法即可將內容自動複製到剪貼簿中：</p>
-      <textarea rows="2" name="promptMarkdown" id="promptMarkdown" placeholder="" class="form-textarea" style="font-family: monospace; font-size: 0.875rem;"></textarea>
+      <h2 class="section-title" style="margin-top: 24px;">📝 複製 Markdown 語法</h2>
+      <div class="copy-section">
+        <textarea rows="2" name="promptMarkdown" id="promptMarkdown" placeholder="" class="form-textarea" style="font-family: monospace; font-size: 0.875rem;"></textarea>
+        <button type="button" id="copyMarkdownBtn" class="btn-copy">📋 複製</button>
+      </div>
 
       <hr>
 
-      <p class="result-title">網站搜尋設定值</p>
+      <h2 class="section-title section-title-search">🔍 網站搜尋設定值</h2>
       <p class="info-text" style="margin-bottom: 16px;">
         參考: <a class="link-highlight" href="https://support.google.com/chrome/answer/95426?hl=en">Set default search engine and site search shortcuts</a>
         <br>Chrome 設定: <span class="code-text">chrome://settings/searchEngines</span>
