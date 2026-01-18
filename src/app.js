@@ -1,6 +1,7 @@
 // AI 提供者對應網址
 const aiProviderUrls = {
     'chatgpt': 'https://chatgpt.com/',
+    'chatgpt-images': 'https://chatgpt.com/images/',
     'claude': 'https://claude.ai/',
     'gemini': 'https://gemini.google.com/app',
     'groq': 'https://groq.com/',
@@ -10,6 +11,7 @@ const aiProviderUrls = {
 // AI 提供者顯示名稱
 const aiProviderNames = {
     'chatgpt': 'ChatGPT',
+    'chatgpt-images': 'ChatGPT Images',
     'claude': 'Claude',
     'gemini': 'Gemini',
     'groq': 'Groq',
@@ -340,6 +342,7 @@ function run() {
 
     // 更新按鈕文字
     if (firstForm.baseurl.value.startsWith('https://chatgpt.com')) ask.innerHTML = '開啟 ChatGPT 提問'
+    if (firstForm.baseurl.value.startsWith('https://chatgpt.com/images')) ask.innerHTML = '開啟 ChatGPT Images 提問'
     if (firstForm.baseurl.value.startsWith('https://gemini.google.com')) ask.innerHTML = '開啟 Gemini 提問'
     if (firstForm.baseurl.value.startsWith('https://claude.ai')) ask.innerHTML = '開啟 Claude 提問'
     if (firstForm.baseurl.value.startsWith('https://groq.com')) ask.innerHTML = '開啟 Groq 提問'
@@ -370,11 +373,15 @@ function generateLink(sitesearch = false) {
     if (!!sitesearch) {
         promptTextEncoded = encodeURIComponent(firstForm.prompt.value).replace('%25s', '%s')
     }
-    let url = `${firstForm.baseurl.value}#autoSubmit=${firstForm.autoSubmit.checked}&pasteImage=${firstForm.pasteImage.checked}&prompt=${promptTextEncoded}`;
+    const params = [
+        `autoSubmit=${firstForm.autoSubmit.checked}`,
+        `pasteImage=${firstForm.pasteImage.checked}`
+    ];
     if (firstForm.tool && firstForm.tool.value) {
-        url += `&tool=${encodeURIComponent(firstForm.tool.value)}`;
+        params.push(`tool=${encodeURIComponent(firstForm.tool.value)}`);
     }
-    return url;
+    params.push(`prompt=${promptTextEncoded}`);
+    return `${firstForm.baseurl.value}#${params.join('&')}`;
 }
 
 // 分享功能
